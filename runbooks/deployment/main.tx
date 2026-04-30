@@ -1,0 +1,22 @@
+################################################################
+# Manage code_coverage deployment through Crypto Infrastructure as Code
+################################################################
+
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "deploy_cpi_target" "svm::deploy_program" {
+    description = "Deploy cpi_target program"
+    program = svm::get_program_from_anchor_project("cpi_target")
+    authority = signer.authority
+    payer = signer.payer
+}
+
+action "deploy_simple_anchor_app" "svm::deploy_program" {
+    description = "Deploy simple_anchor_app program"
+    program = svm::get_program_from_anchor_project("simple_anchor_app")
+    authority = signer.authority
+    payer = signer.payer
+}
