@@ -11,14 +11,7 @@ const CPI_TARGET_ID: Pubkey = pubkey!("HtH3m4682j9Dq9bGx7K41fW7nT3PUTWi3dHbLUHY7
 
 #[test]
 fn make_a_cpi() {
-    // Tell mollusk where `cargo build-sbf` put the .so files.
-    std::env::set_var(
-        "SBF_OUT_DIR",
-        concat!(env!("CARGO_MANIFEST_DIR"), "/../../target/deploy"),
-    );
-
-    let mut mollusk =
-        Mollusk::new_debuggable(&SIMPLE_ANCHOR_APP_ID, "simple_anchor_app", true);
+    let mut mollusk = Mollusk::new_debuggable(&SIMPLE_ANCHOR_APP_ID, "simple_anchor_app", true);
     mollusk.add_program(&CPI_TARGET_ID, "cpi_target");
 
     let payer = Pubkey::new_unique();
