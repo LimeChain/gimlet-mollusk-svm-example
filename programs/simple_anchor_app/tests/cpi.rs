@@ -17,7 +17,8 @@ fn make_a_cpi() {
         concat!(env!("CARGO_MANIFEST_DIR"), "/../../target/deploy"),
     );
 
-    let mut mollusk = Mollusk::new(&SIMPLE_ANCHOR_APP_ID, "simple_anchor_app");
+    let mut mollusk =
+        Mollusk::new_debuggable(&SIMPLE_ANCHOR_APP_ID, "simple_anchor_app", true);
     mollusk.add_program(&CPI_TARGET_ID, "cpi_target");
 
     let payer = Pubkey::new_unique();
