@@ -1,0 +1,19 @@
+[package]
+name = "cpi_target"
+version = "0.1.0"
+edition = "2021"
+description = "Pinocchio port of the Anchor cpi_target program"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "cpi_target"
+
+[features]
+default = []
+no-entrypoint = []
+cpi = ["no-entrypoint"]
+
+[dependencies]
+pinocchio = "0.11.1"
+solana-address = { version = "2", features = ["decode"] }
+solana-program-log = "1"
