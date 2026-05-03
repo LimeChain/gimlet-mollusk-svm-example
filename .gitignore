@@ -1,6 +1,4 @@
 /target
 **/*.rs.bk
-Cargo.lock
-.anchor
 .DS_Store
 test-ledger
