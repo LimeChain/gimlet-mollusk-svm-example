@@ -1,0 +1,23 @@
+[package]
+name = "primary"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "primary"
+
+[features]
+default = []
+no-entrypoint = []
+cpi = ["no-entrypoint"]
+
+[dependencies]
+pinocchio = { version = "0.11.1", features = ["cpi"] }
+solana-address = { version = "2", features = ["decode"] }
+solana-program-log = "1"
+
+[dev-dependencies]
+# We use the `sbpf-debugger` feature of `mollusk-svm` to run the program in a local test environment.
+mollusk-svm = { version = "=0.12.1-agave-4.0", features = ["sbpf-debugger"] }
+solana-sdk = "3"
