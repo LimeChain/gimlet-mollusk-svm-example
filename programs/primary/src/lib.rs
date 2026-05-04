@@ -8,8 +8,6 @@ use pinocchio::{
 };
 use solana_program_log::log;
 
-pub const ID: Address = Address::from_str_const("5UDda9Uq56F75arfkrLX2UHy7EbXtW4DQj3B8HSgn7a2");
-
 #[cfg(not(feature = "no-entrypoint"))]
 pinocchio::program_entrypoint!(process_instruction);
 #[cfg(not(feature = "no-entrypoint"))]
@@ -29,12 +27,8 @@ pub fn process_instruction(
     bytes.copy_from_slice(&instruction_data[..32]);
     let cpi_target_program_id = Address::new_from_array(bytes);
 
-    let payer = accounts
-        .first()
-        .ok_or(ProgramError::NotEnoughAccountKeys)?;
-    let cpi_target_program = accounts
-        .get(1)
-        .ok_or(ProgramError::NotEnoughAccountKeys)?;
+    let payer = accounts.first().ok_or(ProgramError::NotEnoughAccountKeys)?;
+    let cpi_target_program = accounts.get(1).ok_or(ProgramError::NotEnoughAccountKeys)?;
 
     if !payer.is_signer() {
         return Err(ProgramError::MissingRequiredSignature);

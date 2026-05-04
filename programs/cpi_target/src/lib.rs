@@ -3,8 +3,6 @@
 use pinocchio::{error::ProgramError, AccountView, Address, ProgramResult};
 use solana_program_log::log;
 
-pub const ID: Address = Address::from_str_const("HtH3m4682j9Dq9bGx7K41fW7nT3PUTWi3dHbLUHY7ZYX");
-
 #[cfg(not(feature = "no-entrypoint"))]
 pinocchio::program_entrypoint!(process_instruction);
 #[cfg(not(feature = "no-entrypoint"))]
