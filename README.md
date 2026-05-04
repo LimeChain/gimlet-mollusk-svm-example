@@ -6,7 +6,6 @@ A minimal two-program Solana workspace for exercising and debugging sBPF program
 
 ```
 primary  ─── CPI ───▶  cpi_target
-  5UDda9Uq56F75…                   HtH3m4682j9Dq9bG…
 ```
 
 > ### ⚠️ This whole workflow hinges on one specific dependency
