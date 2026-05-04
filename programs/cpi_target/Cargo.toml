@@ -2,7 +2,6 @@
 name = "cpi_target"
 version = "0.1.0"
 edition = "2021"
-description = "Pinocchio example program for cross-program invocation (CPI) testing"
 
 [lib]
 crate-type = ["cdylib", "lib"]
