@@ -2,7 +2,7 @@
 resolver = "2"
 members = [
     "programs/cpi_target",
-    "programs/simple_anchor_app",
+    "programs/primary",
 ]
 
 [profile.release]

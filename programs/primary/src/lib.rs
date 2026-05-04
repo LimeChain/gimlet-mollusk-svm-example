@@ -43,7 +43,7 @@ pub fn process_instruction(
         return Err(ProgramError::InvalidAccountData);
     }
 
-    log!("Greetings from simple_anchor_app");
+    log!("Greetings from primary");
     log!("Invoking cpi_target");
 
     if cpi_target_program.address() != &cpi_target_program_id {

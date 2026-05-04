@@ -1,12 +1,12 @@
 [package]
-name = "simple_anchor_app"
+name = "primary"
 version = "0.1.0"
 edition = "2021"
-description = "Pinocchio port of the Anchor simple_anchor_app program (CPIs into cpi_target)"
+description = "Pinocchio primary example program for cross-program invocation (CPI) testing"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "simple_anchor_app"
+name = "primary"
 
 [features]
 default = []
@@ -20,7 +20,5 @@ solana-program-log = "1"
 
 [dev-dependencies]
 # We use the `sbpf-debugger` feature of `mollusk-svm` to run the program in a local test environment.
-mollusk-svm = { git = "https://github.com/anza-xyz/mollusk", branch = "agave-4.0", features = [
-    "sbpf-debugger",
-] }
+mollusk-svm = { version = "=0.12.1-agave-4.0", features = ["sbpf-debugger"] }
 solana-sdk = "3"
