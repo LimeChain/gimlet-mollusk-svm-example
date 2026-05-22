@@ -8,18 +8,18 @@ A minimal two-program Solana workspace for exercising and debugging sBPF program
 primary  ─── CPI ───▶  cpi_target
 ```
 
-> ### ⚠️ This whole workflow hinges on one specific dependency
+> ### ⚠️ This whole workflow hinges on one dependency
 >
-> The trace-emitting and debugger-attach behavior described below **only works** because this repo pins:
+> The trace-emitting and debugger-attach behavior described below **only works** because this repo depends on:
 >
 > ```toml
-> mollusk-svm = { version = "=0.12.1-agave-4.0", features = ["sbpf-debugger"] }
+> mollusk-svm = { version = "0.13.0", features = ["sbpf-debugger"] }
 > ```
 >
-> - The exact version `=0.12.1-agave-4.0` is required — it's the build wired against the agave 4.0 sBPF VM that honors `SBF_TRACE_DIR` and `SBF_DEBUG_PORT`.
+> - `mollusk-svm` `0.13.0` or later is required — these are the builds that honor `SBF_TRACE_DIR` and `SBF_DEBUG_PORT`.
 > - The `sbpf-debugger` feature is what enables Gimlet integration. Without it, traces are not written and the VM will not pause for a debugger to attach.
 >
-> If you bump or drop either of these, the `Run the test` and `Debug a program` steps below will silently stop producing what Gimlet needs. See `programs/primary/Cargo.toml`.
+> If you drop below `0.13.0` or remove the feature, the `Run the test` and `Debug a program` steps below will silently stop producing what Gimlet needs. See `programs/primary/Cargo.toml`.
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ cargo test -p primary --features no-entrypoint --test cpi -- --nocapture
 
 `SBF_DEBUG_PORT=1212` makes the sBPF VM **open TCP port `1212` and block waiting for a debugger to attach** before stepping into the program.
 
-> This blocking-on-port behavior is provided by the `sbpf-debugger` feature of `mollusk-svm =0.12.1-agave-4.0`. With any other version or without that feature, `SBF_DEBUG_PORT` is a no-op and the test will run straight through.
+> This blocking-on-port behavior is provided by the `sbpf-debugger` feature of `mollusk-svm` `0.13.0` or later. On older versions or without that feature, `SBF_DEBUG_PORT` is a no-op and the test will run straight through.
 
 ## Clean
 

@@ -19,5 +19,5 @@ solana-program-log = "1"
 
 [dev-dependencies]
 # We use the `sbpf-debugger` feature of `mollusk-svm` to run the program in a local test environment.
-mollusk-svm = { version = "=0.12.1-agave-4.0", features = ["sbpf-debugger"] }
+mollusk-svm = { version = "0.13.0", features = ["sbpf-debugger"] }
 solana-sdk = "3"
