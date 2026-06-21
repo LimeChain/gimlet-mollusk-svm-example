@@ -1,6 +1,6 @@
 # gimlet-mollusk-svm-example
 
-A minimal two-program Solana workspace for exercising and debugging sBPF programs via [mollusk-svm](https://github.com/anza-xyz/mollusk) and [Gimlet](https://marketplace.visualstudio.com/items?itemName=Limechain.gimlet).
+A minimal two-program Solana workspace for exercising and debugging sBPF programs via [mollusk-svm](https://github.com/anza-xyz/mollusk) and Gimlet ([VS Code](https://marketplace.visualstudio.com/items?itemName=Limechain.gimlet), [RustRover](https://plugins.jetbrains.com/plugin/31739-gimlet)).
 
 `primary` makes a CPI into `cpi_target`. Both are written with [pinocchio](https://github.com/anza-xyz/pinocchio).
 
