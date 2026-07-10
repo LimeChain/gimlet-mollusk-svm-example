@@ -13,7 +13,7 @@ primary  ─── CPI ───▶  cpi_target
 > The trace-emitting and debugger-attach behavior described below **only works** because this repo depends on:
 >
 > ```toml
-> mollusk-svm = { version = "0.13.0", features = ["sbpf-debugger"] }
+> mollusk-svm = { version = "0.14.0", features = ["sbpf-debugger"] }
 > ```
 >
 > - `mollusk-svm` `0.13.0` or later is required — these are the builds that honor `SBF_TRACE_DIR` and `SBF_DEBUG_PORT`.
