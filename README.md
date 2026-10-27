@@ -13,7 +13,7 @@ primary  ─── CPI ───▶  cpi_target
 > The trace-emitting and debugger-attach behavior described below **only works** because this repo depends on:
 >
 > ```toml
-> mollusk-svm = { version = "0.14.0", features = ["sbpf-debugger"] }
+> mollusk-svm = { version = "0.16.4", features = ["sbpf-debugger"] }
 > ```
 >
 > - `mollusk-svm` `0.13.0` or later is required — these are the builds that honor `SBF_TRACE_DIR` and `SBF_DEBUG_PORT`.
@@ -23,7 +23,7 @@ primary  ─── CPI ───▶  cpi_target
 
 ## Prerequisites
 
-- Rust (stable, with `cargo`)
+- Rust (stable 1.97.1 or newer, with `cargo`) — required by the agave 4.3 crates `mollusk-svm` builds on
 - Solana CLI / Agave toolchain (provides `cargo build-sbf`)
 
 Verify:
@@ -36,7 +36,7 @@ cargo build-sbf --version
 ## Build
 
 ```sh
-cargo-build-sbf --tools-version v1.54 --debug --arch v1
+cargo-build-sbf --tools-version v1.58 --debug --arch v1
 ```
 
 > **Why this?** `cargo build-sbf` step builds with SBPFv1 (`--arch v1`), debug symbols, and no optimizations — required for accurate coverage results.
